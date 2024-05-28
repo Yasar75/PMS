@@ -1,0 +1,45 @@
+//
+// material-icons-style
+//
+
+
+@mixin material-icons-color($color, $important: false) {
+    // svg {
+    //     [fill]:not(.permanent):not(g) {
+    //         transition: fill 0.3s ease;
+    //         fill: $color valueif($important, !important, null);
+    //     }
+
+    //     &:hover {
+    //         [fill]:not(.permanent):not(g) {
+    //             transition: fill 0.3s ease;
+    //         }
+    //     }
+    // }
+    &.material-icons-style{
+        color: $color valueif($important, !important, null);
+        &:hover {
+            transition: fill 0.3s ease;
+        }
+    }
+}
+
+// @mixin svg-icon-transition() {
+//     svg {
+//         [fill]:not(g) {
+//             transition: fill 0.3s ease;
+//         }
+//     }
+// }
+
+@mixin material-icons-size($size, $important: false) {
+    // svg {
+    //     height: $size valueif($important, !important, null);
+    //     width: $size valueif($important, !important, null);
+    // }
+    &.material-icons-style{
+        height: $size valueif($important, !important, null);
+        width: $size valueif($important, !important, null);
+        font-size: $size valueif($important, !important, null);
+    }
+}

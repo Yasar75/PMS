@@ -1,0 +1,91 @@
+//
+// Layout Config
+//
+
+// Root font Sizes
+$root-font-size:                                    13px; // Root font size for desktop mode
+$root-font-size-lg:                             	13px; // Root font size for tablet mode
+$root-font-size-md:                             	12px; // Root font size for mobile mode
+
+// Page Background Color
+// $page-bg:	 										#FEFAF4 !default;
+// ppn
+// $page-bg:	 										#f5f8fa !default;
+// ppn2
+$page-bg:	 										#ffffff !default;
+
+// Content background Color
+// $content-bg-color: 									#FEFAF4 !default;
+// ppn
+// $content-bg-color: 									#ffffff !default;
+// ppn2
+$content-bg-color: 									#f5f8fa !default;
+$content-border-radius:								1.5rem !default;
+
+//form control padding
+$input-padding-y:                                   0.56rem;
+$input-padding-x:                                   1rem;
+
+// Page Spacing
+$page-spacing: (
+	desktop: 40px, // Padding for desktop mode
+	desktop-aside-secondary-disabled: 25px, // Padding for desktop mode when aside secondary is disabled
+	tablet-and-mobile: 20px // Padding for tablet and mobile modes
+) !default;
+
+// Content Spacing
+$content-spacing: (
+	desktop: 30px, // Padding for desktop mode
+	tablet-and-mobile: 15px // Padding for tablet and mobile modes
+) !default;
+
+
+// Header
+$header-config: (
+	// Desktop Mode
+	desktop: (
+		// Default Mode
+		default: (
+			// height: 90px
+			height: 75px
+		),
+
+		// Fixed Mode
+		fixed: (
+			height: 65px,
+			z-index: 99,
+			bg-color: $white,
+			box-shadow: 0px 10px 30px 0px rgba(82,63,105,0.08)
+		)
+	),
+
+	// Tablet & Mobile Modes
+	tablet-and-mobile: (
+		// Default Mode
+		default: (
+			height: 65px,
+		),
+
+		// Fixed Mode
+		fixed: (
+			z-index: 110,
+			height: 65px,
+			bg-color: $white,
+			box-shadow: 0px 10px 30px 0px rgba(82,63,105,0.08)
+		)
+	)
+) !default;
+
+// Aside
+$aside-config: (
+	z-index: 98, // Aside's z-index property
+	transition-speed: 0.3s, // transition speed
+	//ppn width: 280px, // Aside width for desktop mode
+	width: 260px, // Aside width for desktop mode
+	minimized-width: 90px,  // Aside minimized width for desktop mode
+	//ppn minimized-width: 110px,  // Aside minimized width for desktop mode
+	//ppn minimized-padding: 0 40px,  // Aside minimized padding for desktop mode
+	minimized-padding: 0 40px,  // Aside minimized padding for desktop mode
+	box-shadow: 0px 0px 80px 50px rgba(206, 213, 225, 0.05), //5px 0px 10px rgba(70, 78, 95, 0.05), // Aside's box shadow
+	minimized-hover-box-shadow: 5px 0px 10px rgba(70, 78, 95, 0.05) // Monimized hover box shadow
+) !default;

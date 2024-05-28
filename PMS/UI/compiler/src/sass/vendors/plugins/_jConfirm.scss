@@ -1,0 +1,37 @@
+.jconfirm {
+    .jconfirm-box {
+        @include border-radius($border-radius);
+        .jconfirm-title{
+            font-weight: 500;
+            // font-size: 1.3rem;
+            margin: 2rem 0 0 0;
+            color: $dark;
+        }
+        .jconfirm-content {
+            font-weight: normal;
+            // font-size: 1.1rem;
+            // margin-top: 1.5rem;
+            color: $gray-800;
+        }
+        .jconfirm-buttons{
+            margin: 1.5rem auto 1rem auto;
+            .btn{
+                margin: 15px 5px 0;
+                @include border-radius($border-radius-lg !important);
+            }
+        }
+    }
+}
+
+// $.confirm({
+//     theme: 'modern',
+//     buttons: {
+//         buttonA: {
+//             btnClass: 'btn btn-primary',
+//         },
+//         buttontB: {
+//             btnClass: 'btn btn-bg-light btn-color-danger btn-active-danger',
+//             },
+//         }
+//     }
+// });

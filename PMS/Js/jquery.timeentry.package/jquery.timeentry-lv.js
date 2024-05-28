@@ -1,0 +1,1 @@
+(function(a){a.timeEntry.regional.lv={show24Hours:true,separator:":",ampmPrefix:"",ampmNames:["AM","PM"],spinnerTexts:["Pašlaik","Iepriekšējais lauks","Nākamais lauks","Palielināt","Samazināt"]};a.timeEntry.setDefaults(a.timeEntry.regional.lv)})(jQuery);

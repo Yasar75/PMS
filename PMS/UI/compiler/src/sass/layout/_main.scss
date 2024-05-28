@@ -1,0 +1,59 @@
+//
+// Main
+//
+
+
+// Body
+body {
+	background-color: $page-bg;
+}
+
+// Desktop Mode
+@include media-breakpoint-up(lg) {
+	// Containers
+	.container,
+	.container-fluid {
+		padding: 0 get($content-spacing, desktop);
+	}
+
+	// Wrapper
+	.wrapper {
+		transition: padding-left get($aside-config, transition-speed) ease,  margin-right get($aside-config, transition-speed) ease;
+
+		// Aside default enabled and aside fixed modes
+		.aside-fixed & {
+			transition: padding-left get($aside-config, transition-speed) ease;
+			padding-left: get($aside-config, width);
+			position: absolute;
+		}
+
+		// Aside default enabled, aside fixed and aside minimize modes
+		.aside-fixed[data-kt-aside-minimize="on"] & {
+			transition: padding-left get($aside-config, transition-speed) ease;
+			padding-left: get($aside-config, minimized-width);
+		}
+
+		// Fixed header mode
+		.header-fixed[data-kt-sticky-header="on"] & {
+			padding-top: get($header-config, desktop, default, height);
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	// Containers
+	.container,
+	.container-fluid {
+		max-width: none;
+		padding: 0 get($content-spacing, tablet-and-mobile);
+	}
+
+	// Wrapper
+	.wrapper {
+		// Fixed header mode
+		.header-tablet-and-mobile-fixed[data-kt-sticky-header="on"] & {
+			padding-top: get($header-config, tablet-and-mobile, fixed, height);
+		}
+	}
+}

@@ -1,0 +1,131 @@
+//
+// Aside Default
+//
+
+// General mode(all devices)
+.aside {
+	display: flex;
+	flex-direction: column;
+	box-shadow: get($aside-config, box-shadow);
+	// background-color: get($aside-config, bg-color);
+	background-color: $white;
+}
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+	.aside {
+		padding: get($aside-config, minimized-padding);
+		width: get($aside-config, width);
+		transition: width get($aside-config, transition-speed) ease;
+
+		// Logo
+		.aside-logo {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			.logo-default {
+				display: inline-block;
+			}
+
+			.logo-minimize {
+				display: none;
+			}
+		}
+
+		// Aside menu
+		.aside-menu {
+			width: get($aside-config, menu-width); 
+		}
+
+		// Fixed aside mode
+		.aside-fixed & {
+			position: fixed;
+			padding-top: get($header-config, desktop, default, height);
+			top: 0;
+			bottom: 0;
+			left: 0;
+			z-index: get($aside-config, z-index);
+			overflow: hidden;
+		}
+
+		.aside-fixed[data-kt-sticky-header="on"] & {
+			position: fixed;
+			padding-top: get($header-config, desktop, default, height);
+		}
+
+		// Static aside mode
+		.aside-static & {
+			position: relative;
+			z-index: 1;
+		}
+
+		// Minimize aside mode
+		[data-kt-aside-minimize="on"] & {
+			width: get($aside-config, minimized-width);
+			transition: width get($aside-config, transition-speed) ease;
+
+			// Logo
+			.aside-logo {
+				.logo-default {
+					display: inline-block;
+				}
+	
+				.logo-minimize {
+					display: none;
+				}
+			}
+
+			// Hover mode
+			&.aside-hoverable:hover {
+				transition: width get($aside-config, transition-speed) ease;
+				width: get($aside-config, width);
+				box-shadow: get($aside-config, minimized-hover-box-shadow);
+			}
+
+			// Not hovered mode
+			&:not(.aside-hoverable),
+			&:not(:hover) {
+				// Logo
+				.aside-logo {
+					.logo-default {
+						display: none;
+					}
+		
+					.logo-minimize {
+						display: inline-block;
+					}
+				}				
+
+				// Menu
+				.aside-menu, .aside-footer {
+					.menu-content,
+					.menu-title {
+						opacity: 0;
+						transition: opacity get($aside-config, transition-speed) ease;
+						white-space: nowrap;
+					}
+
+					.menu-item.show > .menu-sub {
+						height: 0;
+						overflow: hidden;
+						transition: height get($aside-config, transition-speed) ease;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	.aside {
+		display: none;
+		padding: get($aside-config, minimized-padding);
+
+		// Logo
+		.aside-logo {
+			display: none;
+		}
+	}
+}

@@ -1,0 +1,106 @@
+//colors
+$white: #ffffff;
+$black_5: rgba(0, 0, 0, 0.05);
+
+//@extend-elements
+//original selectors
+//.image-input [data-kt-image-input-action=cancel], .image-input [data-kt-image-input-action=remove]
+%extend_1 {
+	position: absolute;
+	left: 100%;
+	top: 100%;
+}
+
+//original selectors
+//.image-input.image-input-circle [data-kt-image-input-action=cancel], .image-input.image-input-circle [data-kt-image-input-action=remove]
+%extend_2 {
+	left: 100%;
+	top: 100%;
+	//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+	transform: translate(-100%, -100%);
+}
+
+
+.image-input {
+	position: relative;
+	display: inline-block;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 1.15rem;
+	background-repeat: no-repeat;
+	background-size: cover;
+	.image-input-wrapper {
+		width: 120px;
+		height: 120px;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 1.15rem;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	[data-kt-image-input-action] {
+		cursor: pointer;
+		position: absolute;
+		//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+		transform: translate(-50%, -50%);
+	}
+	[data-kt-image-input-action=change] {
+		left: 100%;
+		top: 0;
+		input {
+			width: 0 !important;
+			height: 0 !important;
+			overflow: hidden;
+			opacity: 0;
+		}
+	}
+	[data-kt-image-input-action=cancel] {
+		@extend %extend_1;
+		display: none;
+	}
+	[data-kt-image-input-action=remove] {
+		@extend %extend_1;
+	}
+	&.image-input-changed {
+		[data-kt-image-input-action=cancel] {
+			display: flex;
+		}
+		[data-kt-image-input-action=remove] {
+			display: none;
+		}
+	}
+	&.image-input-empty {
+		[data-kt-image-input-action=remove] {
+			display: none;
+		}
+		[data-kt-image-input-action=cancel] {
+			display: none;
+		}
+	}
+	&.image-input-circle {
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 50%;
+		.image-input-wrapper {
+			//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+			border-radius: 50%;
+		}
+		[data-kt-image-input-action=change] {
+			left: 100%;
+			top: 0;
+			//Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+			transform: translate(-100%, 0);
+		}
+		[data-kt-image-input-action=cancel] {
+			@extend %extend_2;
+		}
+		[data-kt-image-input-action=remove] {
+			@extend %extend_2;
+		}
+	}
+	&:not(.image-input-empty) {
+		background-image: none !important;
+	}
+	&.image-input-outline .image-input-wrapper {
+		border: 3px solid $white;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 0.1rem 1rem 0.25rem $black_5;
+	}
+}

@@ -1,0 +1,674 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Charts Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../UI/axpertUI/style.bundle.css">
+    <link rel="stylesheet" href="../../UI/axpertUI/plugins.bundle.css">
+    <link rel="stylesheet" href="../../ThirdParty/jquery-confirm-master/jquery-confirm.min.css">
+
+    <style>
+        .card-body.p-0.min-h-300px.heightControl.pt-0--- {
+            height: 110px !important;
+        }
+
+        .card.rounded-1.h-100.shadow-sm {
+            height: auto !important;
+        }
+
+        #Homepage_CardsList .card {
+            box-shadow: none !important;
+            border: 0 !important;
+        }
+
+        .Hp-card-title,
+        .Hp-card-title a {
+            font-size: 13px !important;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            #Homepage_CardsList .widgetWrapper.htmlDomWrapper {
+                width: 50%;
+            }
+
+                #Homepage_CardsList .widgetWrapper.htmlDomWrapper[title="empprofilecard"],
+                #Homepage_CardsList .widgetWrapper.htmlDomWrapper[title="empanniversary"] {
+                    width: 100%;
+                }
+
+            #Homepage_CardsList .row .row {
+                display: contents;
+            }
+
+            .Hp-card-title,
+            .Hp-card-title a {
+                font-size: 13px !important;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .widgetWrapper.htmlDomWrapper .card-body.min-h-300px {
+                min-height: auto !important;
+            }
+
+            #Homepage_CardsList .cards-list {
+                margin-bottom: 7px !important;
+            }
+
+            .mt-3.widgetWrapper.htmlDomWrapper.col-lg-12.col-md-12.col-sm-12.col-xs-12 {
+                width: 100% !important;
+            }
+
+            #Homepage_CardsList .widgetWrapper[title="companyannouncementslider"] {
+                width: 100% !important;
+            }
+
+                #Homepage_CardsList .widgetWrapper[title="companyannouncementslider"] .col-md-3 {
+                    width: 30%;
+                }
+
+                #Homepage_CardsList .widgetWrapper[title="companyannouncementslider"] .col-md-9 {
+                    width: 70%;
+                }
+
+                #Homepage_CardsList .widgetWrapper[title="companyannouncementslider"] .company-announcement a {
+                    text-align: left !important;
+                }
+
+            .menu-sub-dropdown {
+                border-radius: 0 !important;
+            }
+
+            .empattend.menu.menu-sub.menu-sub-dropdown {
+                width: 100% !important;
+            }
+
+            #Daily_Login_top {
+                width: 100% !important;
+            }
+
+            #Teams_Details #SD_Btns {
+                flex-wrap: nowrap !important;
+            }
+
+            #prev-slide,
+            #next-slide {
+                font-size: 12px;
+            }
+
+            /* .col-md-12 {
+                        justify-content: center;
+                        display: flex;
+                    } */
+
+            .customCalenderBtn {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                /* Adjust the gap to control the spacing between the icon and text */
+            }
+        }
+
+        .btnMainContainer {
+            background-color: aliceblue;
+            border: 1px solid #0000001c;
+        }
+
+        .btnSubContainer {
+            justify-content: initial !important;
+        }
+
+        .btnContainerBtns {
+            background-color: #fff;
+            padding: 10px 25px;
+            margin: 5px 10px;
+            border: 1px solid #e5e5e5 !important;
+            font-weight: 600;
+        }
+
+            .btnContainerBtns:hover {
+                background-color: #006CFF;
+                color: #fff !important;
+            }
+
+        #customCalenderBtnicon {
+            font-size: 18px !important;
+            margin-left: 2px;
+            position: relative;
+            top: 3px !important;
+        }
+
+        #customCalenderBtn:hover #customCalenderBtnicon {
+            color: #fff !important;
+        }
+
+        .activebtn {
+            background-color: #006CFF !important;
+            color: #fff !important;
+        }
+
+            .activebtn #customCalenderBtnicon {
+                color: #fff !important;
+            }
+
+        /* .main-heading {
+            position: fixed;
+            background: #f5f8fa;
+            width: 100%;
+            padding: 10px 20px !important;
+            z-index: 9; display: block !important;
+        }
+        #Calender_filter {
+            position: absolute;
+            right: 0;
+            top: 5px;
+        } */
+        #DashboardN .content {
+            background: transparent !important;
+            padding-top: 54px !important;
+        }
+
+        .Page-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .main-heading {
+            position: fixed;
+            background: #f5f8fa;
+            width: 100%;
+            padding: 0px 20px !important;
+            z-index: 9;
+            display: block !important;
+        }
+
+        .btnSubContainer {
+            display: flex;
+        }
+
+            .btnSubContainer button {
+                height: 35px;
+                margin: 2px;
+            }
+
+        #customCalender {
+            padding: 0 !important;
+        }
+
+        #Calender_filter {
+            display: none;
+        }
+
+        #customDropdown {
+            width: 50% !important;
+            /* position: fixed !important;
+            right: 0 !important;
+            inset: 0px 22px auto auto !important; */
+            border-radius: 0 !important;
+        }
+
+        .toolbar h1::after {
+            background: transparent !important
+        }
+
+        .widgetWrapper:first-child {
+            margin-top: 0 !important;
+        }
+
+        #waitDiv {
+            width: 60%;
+            display: block;
+            /* height: inherit; */
+            top: 35%;
+            left: 40%;
+        }
+
+        .page-loader {
+            background: #fff;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 10000000;
+            display: none
+        }
+
+        .page-loading .page-loader {
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .page-loader .loader {
+            animation: rotate 5s infinite;
+            height: 50px;
+            width: 50px
+        }
+
+            .page-loader .loader:after,
+            .page-loader .loader:before {
+                border-radius: 50%;
+                content: "";
+                display: block;
+                height: 20px;
+                width: 20px
+            }
+
+            .page-loader .loader:before {
+                animation: ball1 2s infinite;
+                background-color: #47be7d;
+                margin-bottom: 10px
+            }
+
+            .page-loader .loader:after {
+                animation: ball2 2s infinite;
+                background-color: #d9214e
+            }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0) scale(.8)
+            }
+
+            50% {
+                transform: rotate(360deg) scale(1.2)
+            }
+
+            100% {
+                transform: rotate(720deg) scale(.8)
+            }
+        }
+
+        @keyframes ball1 {
+            0% {
+                box-shadow: 30px 0 0 #5014d0
+            }
+
+            50% {
+                box-shadow: 0 0 0 #5014d0;
+                margin-bottom: 0;
+                transform: translate(15px, 15px)
+            }
+
+            100% {
+                box-shadow: 30px 0 0 #5014d0;
+                margin-bottom: 10px
+            }
+        }
+
+        @keyframes ball2 {
+            0% {
+                box-shadow: 30px 0 0 #f1bc00
+            }
+
+            50% {
+                box-shadow: 0 0 0 #f1bc00;
+                margin-top: -20px;
+                transform: translate(15px, 15px)
+            }
+
+            100% {
+                box-shadow: 30px 0 0 #f1bc00;
+                margin-top: 0
+            }
+        }
+
+        .loader-box-wrapper.d-flex.bg-white.p-20.shadow.rounded {
+            width: fit-content;
+        }
+    </style>
+    <link rel="stylesheet" href="../../CustomPages/css/Homepage_Cards.css">
+
+</head>
+
+<body>
+
+    <div class="designer toolbar pb-0 main-heading">
+
+        <h1 class="Page-title text-dark fw-bolder my-1 fs-2">
+            Charts Demo
+
+        </h1>
+    </div>
+
+    <div class="page d-flex flex-row flex-column-fluid position-relative" id="DashboardN">
+        <div class="wrapper d-flex flex-column flex-row-fluid w-100 h-100">
+            <div class="content fs-6 d-flex flex-column flex-column-fluid px-3 pt-3 pb-2 pb-2">
+
+                <!-- <nav class="navbar btnMainContainer" id="Calender_filter_box">
+
+                </nav> -->
+
+
+                <div class="cardsPageWrapper d-none">
+                    <div class="designer toolbar ms-5 pb-0 d-none">
+                        <div class="d-flex flex-stack flex-wrap flex-sm-nowrap">
+                            <div class="d-flex flex-column align-items-start justify-content-center flex-wrap me-2">
+                                <h1 class="text-dark fw-boldest my-1 fs-2">
+                                    Cards Setting
+                                    <small class="text-muted fs-6 fw-normal ms-1"></small>
+                                </h1>
+                            </div>
+                            <div class="d-flex align-items-center flex-nowrap text-nowrap py-1">
+                                <a href="javascript:void(0);" class="editSaveCardDesign btn btn-icon btn-white btn-active-primary me-4" onclick="$.axpertUI.cardsPage.editSaveCardDesignToggle();">
+                                    <span class="material-icons material-icons-style">
+                                        edit
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul class="cardsDesigner card list-group d-none mt-6"></ul>
+                    <div class="cardsPlot mb-8" id="Homepage_CardsList">
+                        <div class="row" id="Homepage_CardsList_Wrapper" style="display:none">
+
+                        </div>
+                        <div class="row" id="Homepage_CardsList_CustomWrapper">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="waitDiv" class="page-loader rounded-2 bg-radial-gradient">
+        <div class="loader-box-wrapper d-flex bg-white p-20 shadow rounded">
+            <span class="loader"></span>
+        </div>
+    </div>
+    <script type="text/javascript" src="../../UI/axpertUI/plugins.bundle.js"></script>
+    <script type="text/javascript" src="../../UI/axpertUI/scripts.bundle.js"></script>
+    <script type="text/javascript" src="../../ThirdParty/jquery-confirm-master/jquery-confirm.min.js"></script>
+    <script type="text/javascript" src="../../Js/common.min.js"></script>
+    <script type="text/javascript" src="../../Js/alerts.min.js"></script>
+    <script type="text/javascript" src="../../Js/xmlToJson.js"></script>
+    <script type="text/javascript" src="../../CustomPages/js/DateFilterParams.js?v=1.1"></script>
+    <script type="text/javascript" src="../../ThirdParty/DataTables-1.10.13/extensions/Extras/moment.min.js"></script>
+
+
+
+
+    <script type="text/javascript">
+        /* Variables from mainpage */
+
+
+        function updateParams(key, val) {
+            $.ajax({
+                url: "../../CustomPages/aspx/ALLSEC_WebServices.aspx/UpdateParams",
+                type: 'POST',
+                cache: false,
+                async: false,
+                data: JSON.stringify({
+                    key: key, val: val
+                }),
+                dataType: 'json',
+                contentType: "application/json",
+                success: (data) => {
+                    // parent.ShowDimmer(false);
+                }
+            });
+
+        }
+        var LoadIframe = callParentNew("LoadIframe");
+        var cardsData = {}, cardsDesign = {}, xmlMenuData = "", menuJson = "";
+
+        let cardsDashboardObj = {
+            dirLeft: true,
+            enableMasonry: false,
+            homePageType: "cards",
+            isCardsDashboard: true,
+            isMobile: isMobileDevice(),
+        };
+        var files = {
+            css: [],
+            js: []
+        };
+
+        files.js.push("/../ThirdParty/lodash.min.js");
+        files.js.push("/../ThirdParty/deepdash.min.js");
+
+        files.js.push("/../Js/handlebars.min.js?v=1");
+        files.js.push("/../Js/handleBarsHelpers.min.js");
+
+        files.js.push("/../ThirdParty/Highcharts/highcharts-3d.js");
+        files.js.push("/../ThirdParty/Highcharts/highcharts-more.js");
+        files.js.push("/../ThirdParty/Highcharts/highcharts.js");
+        files.js.push("/../ThirdParty/Highcharts/highcharts-exporting.js");
+        files.js.push("/../Js/high-charts-functions.min.js?v=20");
+        files.js.push("/../Js/AxInterface.min.js?v=10");
+
+        files.js.push("/../ThirdParty/DataTables-1.10.13/media/js/jquery.dataTables.js");
+        files.js.push("/../ThirdParty/DataTables-1.10.13/media/js/dataTables.bootstrap.js");
+
+        files.js.push("/../ThirdParty/DataTables-1.10.13/extensions/Extras/moment.min.js");
+        files.css.push("/../ThirdParty/fullcalendar/lib/main.min.css");
+        files.js.push("/../ThirdParty/fullcalendar/lib/main.min.js");
+
+        if (cardsDashboardObj.isMobile) {
+            files.js.push("/../ThirdParty/jquery-ui-touch-punch-master/jquery.ui.touch-punch.min.js");
+        }
+
+        if (cardsDashboardObj.enableMasonry) {
+            files.js.push("/../ThirdParty/masonry/masonry.pkgd.min.js");
+        }
+
+        files.js.push(`/HTMLPages/js/axpertFlutterDashboard.js?v=1`);
+
+        if (document.getElementsByTagName("body")[0].classList.contains("btextDir-rtl")) {
+            cardsDashboardObj.dirLeft = false;
+        }
+
+        loadAndCall({
+            files: files,
+            callBack: () => {
+
+                $(function () {
+                    ShowDimmer(true);
+                    deepdash(_);
+
+					var axpcardIdArray = ["1602660000000"];
+                    var axpcardTypeArray = ["pie"];
+
+
+
+                    $.ajax({
+                        url: "../../WebService.asmx/refreshCards",
+                        type: 'POST',
+                        cache: false,
+                        async: false,
+                        data: JSON.stringify({ cards: axpcardIdArray.join(",") }),
+                        dataType: 'json',
+                        contentType: "application/json",
+                        success: (data) => {
+                            if (data.d && data.d != "") {
+                                data.d = data.d.replace(/\n/g, '\\n');
+                                let result = JSON.parse(data.d);
+                                cardsData.value = JSON.stringify(result.result);
+                                cardsDesign.value = "";
+                                xmlMenuData = "";
+                            } else {
+                                showAlertDialog("error", "Error while loading cards ..!!");
+                                return;
+                            }
+                        },
+                        error: (error) => {
+                            showAlertDialog("error", "Error while loading cards ..!!");
+                            return;
+                        },
+                        failure: (error) => {
+                            showAlertDialog("error", "Error while loading cards ..!!");
+                            return;
+                        },
+                    });
+
+                    //start cards dasboard Init
+
+                    if (xmlMenuData != "") {
+                        xmlMenuData = xmlMenuData.replace(/'/g, "'");
+                        var xml = parseXml(xmlMenuData)
+                        var xmltojson = xml2json(xml, "");
+                        menuJson = JSON.parse(xmltojson);
+                    }
+                    appGlobalVarsObject._CONSTANTS.menuConfiguration = $.extend(true, {},
+                        appGlobalVarsObject._CONSTANTS.menuConfiguration, {
+                        menuJson: menuJson,
+                    });
+                    // try {
+
+                    appGlobalVarsObject._CONSTANTS.cardsPage = {
+                        setCards: false,
+                        cards: []
+                    }
+
+                    appGlobalVarsObject._CONSTANTS.cardsPage = $.extend(true, {},
+                        appGlobalVarsObject._CONSTANTS.cardsPage, {
+                        setCards: true,
+                        cards: (JSON.parse(cardsData.value !== "" ? ReverseCheckSpecialChars(cardsData.value) : "[]",
+                            function (k, v) {
+                                try {
+                                    return (typeof v === "object" || isNaN(v) || v.toString().trim() === "") ? v : (typeof v == "string" && (v.startsWith("0") || v.startsWith("-")) ? parseFloat(v, 10) : JSON.parse(v));
+                                } catch (ex) {
+                                    return v;
+                                }
+                                //0 & - starting with does not gets parsed in json.parse
+                                //json.parse is used because it porcess int, float and boolean together
+                            }
+                        ) || []).map(arr => _.mapKeys(arr, (value, key) => key.toString().toLowerCase())),
+                        design: (JSON.parse(cardsDesign.value !== "" ? cardsDesign.value : "[]",
+                            function (k, v) {
+                                try {
+                                    return (typeof v === "object" || isNaN(v) || v.toString().trim() === "") ? v : (typeof v == "string" && (v.startsWith("0") || v.startsWith("-")) ? parseFloat(v, 10) : JSON.parse(v));
+                                } catch (ex) {
+                                    return v;
+                                }
+                            }
+                        ) || []).map(arr => _.mapKeys(arr, (value, key) => key.toString().toLowerCase())),
+                        enableMasonry: cardsDashboardObj.enableMasonry,
+                        staging: {
+                            iframes: ".splitter-wrapper",
+                            cardsFrame: {
+                                div: ".cardsPageWrapper",
+                                cardsDiv: "#Homepage_CardsList_CustomWrapper",
+                                cardsDesigner: ".cardsDesigner",
+                                cardsDesignerToolbar: ".designer",
+                                editSaveButton: ".editSaveCardDesign",
+                                icon: "span.material-icons",
+                                divControl: "#arrangeCards"
+                            },
+                        }
+                    });
+
+                    var lcm = appGlobalVarsObject.lcm;
+                    var tempaxpertUIObj = $.axpertUI
+                        .init({
+                            isHybrid: appGlobalVarsObject._CONSTANTS.isHybrid,
+                            isMobile: cardsDashboardObj.isMobile,
+                            compressedMode: appGlobalVarsObject._CONSTANTS.compressedMode,
+                            dirLeft: cardsDashboardObj.dirLeft,
+                            axpertUserSettings: {
+                                settings: appGlobalVarsObject._CONSTANTS.axpertUserSettings
+                            },
+                            cardsPage: appGlobalVarsObject._CONSTANTS.cardsPage
+                        });
+
+                    appGlobalVarsObject._CONSTANTS.cardsPage = tempaxpertUIObj.cardsPage;
+
+                    // } catch (ex) {
+                    //     showAlertDialog("error", ex.Message);
+                    // }
+                    ShowDimmer(false);
+                });
+
+                $.axpertUI.cardsPage._addCardHeader = function (cardElement, card) {
+                    cardElement.find(".mainHeading").attr("title", (card["cardname"] || "")).find("headerContent").replaceWith(card["cardname"] || "");
+                    cardElement.attr("title", (card["cardname"] || ""));
+                }
+
+            }
+
+        });
+        //End cards dashboard Code
+
+        // setTimeout(function () {
+        //     var htmlDomWrapperCardBody = document.querySelectorAll('.htmlDomWrapper .card-body');
+
+        //     htmlDomWrapperCardBody.forEach((ele) => {
+        //         debugger;
+        //         ele.classList.remove('min-h-300px');
+        //     });
+        // }, 5000);
+
+
+
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            $("#Calender_filter").click(function () {
+                $("#Calender_filter_box").toggle();
+                $(".leave-frames").toggleClass("leave-frames-expand");
+            });
+        });
+
+        function ShowDimmer(status) {
+
+            DimmerCalled = true;
+            var dv = $("#waitDiv");
+
+            if (dv.length > 0 && dv != undefined) {
+                if (status == true) {
+
+                    var currentfr = $("#middle1", parent.document);
+                    if (currentfr) {
+                        dv.width(currentfr.width());
+                    }
+                    dv.show();
+                    document.onkeydown = function EatKeyPress() {
+                        return false;
+                    }
+                } else {
+                    dv.hide();
+                    document.onkeydown = function EatKeyPress() {
+                        if (DimmerCalled == true) {
+                            return true;
+                        }
+                    }
+                }
+            } else {
+                //TODO:Needs to be tested
+                if (window.opener != undefined) {
+
+                    dv = $("#waitDiv", window.opener.document);
+                    if (dv.length > 0) {
+                        if (status == true)
+                            dv.show();
+                        else
+                            dv.hide();
+                    }
+                }
+            }
+            DimmerCalled = false;
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

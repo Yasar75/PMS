@@ -1,0 +1,1 @@
+(function(a){a.timeEntry.regional.ca={show24Hours:true,separator:":",ampmPrefix:"",ampmNames:["AM","PM"],spinnerTexts:["Ara","Camp anterior","Següent camp","Augmentar","Disminuir"]};a.timeEntry.setDefaults(a.timeEntry.regional.ca)})(jQuery);

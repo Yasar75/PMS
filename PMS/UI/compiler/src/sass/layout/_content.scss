@@ -1,0 +1,27 @@
+//
+// Content
+//
+
+.content{
+	background-color: $content-bg-color;
+}
+
+// Desktop mode
+@include media-breakpoint-up(lg) {
+	.content {
+		padding: get($content-spacing, desktop) 0;
+		@include border-radius($content-border-radius);
+		.toolbar{
+			.toolbar-enabled &{
+				padding-bottom: 30px;
+			}
+		}
+	}
+}
+
+// Tablet & mobile modes
+@include media-breakpoint-down(lg) {
+	.content {
+		padding: get($content-spacing, tablet-and-mobile) 0;
+	}
+}

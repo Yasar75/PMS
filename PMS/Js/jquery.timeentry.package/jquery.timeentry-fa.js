@@ -1,0 +1,1 @@
+(function(a){a.timeEntry.regional.fa={show24Hours:true,separator:":",ampmPrefix:"",ampmNames:["ق.ظ","ب.ظ"],spinnerTexts:["اکنون","قبلی","بعدی","افزایش","کاهش"]};a.timeEntry.setDefaults(a.timeEntry.regional.fa)})(jQuery);

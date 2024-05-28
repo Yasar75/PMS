@@ -1,0 +1,481 @@
+//colors
+$white: #fff;
+$color_mulled_wine_10_approx: rgba(82,63,105,.1);
+$color_waterloo__approx: #7e8299;
+$color_alice_blue_approx: #f1faff;
+$color_cerulean_approx: #00b2ff;
+$color_athens_gray_approx: #eff2f5;
+$color_gun_powder_approx: #3f4254;
+$color_comet_approx: #5e6278;
+$color_french_gray_approx: #b5b5c3;
+$color_mirage_approx: #181c32;
+
+//fonts
+$font_0: Roboto;
+$font_1: sans-serif;
+
+//@extend-elements
+//original selectors
+//.btn-check:active +.daterangepicker .drp-buttons .cancelBtn, .btn-check:checked +.daterangepicker .drp-buttons .cancelBtn, .daterangepicker .drp-buttons .cancelBtn.active, .daterangepicker .drp-buttons .cancelBtn.show, .daterangepicker .drp-buttons .cancelBtn:active:not(.btn-active), .daterangepicker .drp-buttons .cancelBtn:focus:not(.btn-active), .daterangepicker .drp-buttons .cancelBtn:hover:not(.btn-active), .show >.daterangepicker .drp-buttons .cancelBtn
+%extend_1 {
+	color: $color_waterloo__approx;
+	border-color: $color_athens_gray_approx;
+	background-color: $color_athens_gray_approx!important;
+}
+
+//original selectors
+//.daterangepicker .drp-calendar td, .daterangepicker .drp-calendar th
+%extend_2 {
+	font-size: 1rem;
+	font-weight: 400;
+	width: 33px;
+	height: 33px;
+}
+
+//original selectors
+//.daterangepicker .drp-calendar td.available:hover, .daterangepicker .drp-calendar th.available:hover
+%extend_3 {
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 1.15rem;
+	background-color: $color_alice_blue_approx;
+	color: $color_cerulean_approx;
+}
+
+//original selectors
+//.daterangepicker .drp-calendar td.today, .daterangepicker .drp-calendar td.today.active
+%extend_4 {
+	background: $color_alice_blue_approx!important;
+	color: $color_cerulean_approx!important;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 1.15rem;
+}
+
+//original selectors
+//.daterangepicker select.ampmselect, .daterangepicker select.hourselect, .daterangepicker select.minuteselect, .daterangepicker select.monthselect, .daterangepicker select.yearselect
+%extend_5 {
+	padding-top: .35rem;
+	padding-bottom: .35rem;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 1.15rem;
+	background: 0 0;
+	border-color: transparent;
+	color: $color_mirage_approx;
+	font-weight: 500;
+	outline: 0!important;
+}
+
+
+.daterangepicker {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	width: auto;
+	background-color: $white;
+	//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 0 50px 0 $color_mulled_wine_10_approx;
+	font-family: $font_0, $font_1;
+	z-index: 1000;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 1.15rem;
+	&:after {
+		display: none;
+	}
+	&:before {
+		display: none;
+	}
+	.calendar-table {
+		background-color: $white;
+		border: 0;
+	}
+	.ranges {
+		//Instead of the line below you could use @include border-top-left-radius($radius)
+		border-top-left-radius: 1.15rem;
+		background-color: $white;
+		ul {
+			padding: 1rem 0;
+			width: 175px;
+		}
+		li {
+			padding: .7rem 1.75rem;
+			font-weight: 500;
+			font-size: 1rem;
+			color: $color_waterloo__approx;
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: color .2s ease,background-color .2s ease;
+			&:hover {
+				background-color: $color_alice_blue_approx;
+				color: $color_cerulean_approx;
+				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+				transition: color .2s ease,background-color .2s ease;
+			}
+			&.active {
+				background-color: $color_cerulean_approx;
+				color: $white;
+				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+				transition: color .2s ease,background-color .2s ease;
+			}
+		}
+	}
+	&.show-ranges {
+		&.show-calendar .ranges {
+			border-right: 1px solid $color_athens_gray_approx;
+		}
+		.drp-calendar.left {
+			border-left: 0;
+		}
+	}
+	.drp-buttons {
+		padding: 1rem 1.75rem;
+		border-top: 1px solid $color_athens_gray_approx;
+		.btn {
+			font-size: 1rem;
+			font-weight: 500;
+			padding: .5rem 1rem;
+		}
+		.cancelBtn {
+			color: $color_waterloo__approx;
+			border-color: $content-bg-color;
+			background-color: $content-bg-color;
+			i {
+				color: $color_waterloo__approx;
+			}
+			&.active {
+				@extend %extend_1;
+				i {
+					color: $color_waterloo__approx;
+				}
+				.svg-icon svg {
+					[fill]:not(.permanent):not(g) {
+						//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+						transition: fill .3s ease;
+						fill: $color_waterloo__approx;
+					}
+					&:hover [fill]:not(.permanent):not(g) {
+						//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+						transition: fill .3s ease;
+					}
+				}
+				&.dropdown-toggle:after {
+					color: $color_waterloo__approx;
+				}
+			}
+			&.show {
+				@extend %extend_1;
+				i {
+					color: $color_waterloo__approx;
+				}
+				.svg-icon svg {
+					[fill]:not(.permanent):not(g) {
+						//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+						transition: fill .3s ease;
+						fill: $color_waterloo__approx;
+					}
+					&:hover [fill]:not(.permanent):not(g) {
+						//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+						transition: fill .3s ease;
+					}
+				}
+				&.dropdown-toggle:after {
+					color: $color_waterloo__approx;
+				}
+			}
+			.svg-icon svg {
+				[fill]:not(.permanent):not(g) {
+					//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+					transition: fill .3s ease;
+					fill: $color_waterloo__approx;
+				}
+				&:hover [fill]:not(.permanent):not(g) {
+					//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+					transition: fill .3s ease;
+				}
+			}
+			&.dropdown-toggle:after {
+				color: $color_waterloo__approx;
+			}
+			&:active:not(.btn-active) {
+				@extend %extend_1;
+				i {
+					color: $color_waterloo__approx;
+				}
+				.svg-icon svg {
+					[fill]:not(.permanent):not(g) {
+						//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+						transition: fill .3s ease;
+						fill: $color_waterloo__approx;
+					}
+					&:hover [fill]:not(.permanent):not(g) {
+						//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+						transition: fill .3s ease;
+					}
+				}
+				&.dropdown-toggle:after {
+					color: $color_waterloo__approx;
+				}
+			}
+			&:focus:not(.btn-active) {
+				@extend %extend_1;
+				i {
+					color: $color_waterloo__approx;
+				}
+				.svg-icon svg {
+					[fill]:not(.permanent):not(g) {
+						//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+						transition: fill .3s ease;
+						fill: $color_waterloo__approx;
+					}
+					&:hover [fill]:not(.permanent):not(g) {
+						//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+						transition: fill .3s ease;
+					}
+				}
+				&.dropdown-toggle:after {
+					color: $color_waterloo__approx;
+				}
+			}
+			&:hover:not(.btn-active) {
+				@extend %extend_1;
+				i {
+					color: $color_waterloo__approx;
+				}
+				.svg-icon svg {
+					[fill]:not(.permanent):not(g) {
+						//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+						transition: fill .3s ease;
+						fill: $color_waterloo__approx;
+					}
+					&:hover [fill]:not(.permanent):not(g) {
+						//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+						transition: fill .3s ease;
+					}
+				}
+				&.dropdown-toggle:after {
+					color: $color_waterloo__approx;
+				}
+			}
+		}
+	}
+	.drp-selected {
+		font-size: .9rem;
+	}
+	.drp-calendar {
+		&.left {
+			padding: 1rem;
+			border-left: 0!important;
+		}
+		&.right {
+			padding: 1rem;
+		}
+		td {
+			@extend %extend_2;
+			color: $color_comet_approx;
+			&.available {
+				&:hover {
+					@extend %extend_3;
+				}
+				&.off {
+					color: $color_french_gray_approx;
+				}
+			}
+			&.active {
+				background-color: $color_cerulean_approx!important;
+				color: $white!important;
+				//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+				border-radius: 1.15rem;
+				&.start-date {
+					//Instead of the line below you could use @include border-top-right-radius($radius)
+					border-top-right-radius: 0;
+					//Instead of the line below you could use @include border-bottom-right-radius($radius)
+					border-bottom-right-radius: 0;
+					&.end-date {
+						//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+						border-radius: 1.15rem;
+					}
+				}
+				&.end-date {
+					//Instead of the line below you could use @include border-top-left-radius($radius)
+					border-top-left-radius: 0;
+					//Instead of the line below you could use @include border-bottom-left-radius($radius)
+					border-bottom-left-radius: 0;
+				}
+			}
+			&.today {
+				@extend %extend_4;
+				&.active {
+					@extend %extend_4;
+				}
+			}
+			&:hover {
+				background-color: $color_alice_blue_approx;
+				color: $color_cerulean_approx;
+			}
+			&.in-range.available:not(.active):not(.off):not(.today) {
+				background-color: $color_alice_blue_approx;
+				color: $color_cerulean_approx;
+			}
+		}
+		th {
+			@extend %extend_2;
+			font-weight: 500;
+			color: $color_gun_powder_approx;
+			&.month {
+				font-weight: 500;
+				color: $color_gun_powder_approx;
+			}
+			&.next {
+				span {
+					border-width: 0 1px 1px 0;
+					border-color: $color_waterloo__approx;
+					margin-right: 1px;
+				}
+				&.available:hover span {
+					border-color: $color_cerulean_approx;
+				}
+			}
+			&.prev {
+				span {
+					border-width: 0 1px 1px 0;
+					border-color: $color_waterloo__approx;
+					margin-left: 1px;
+				}
+				&.available:hover span {
+					border-color: $color_cerulean_approx;
+				}
+			}
+			&.available:hover {
+				@extend %extend_3;
+			}
+		}
+	}
+	select {
+		&.ampmselect {
+			@extend %extend_5;
+			&:focus {
+				background: $content-bg-color;
+			}
+		}
+		&.hourselect {
+			@extend %extend_5;
+			&:focus {
+				background: $content-bg-color;
+			}
+		}
+		&.minuteselect {
+			@extend %extend_5;
+			&:focus {
+				background: $content-bg-color;
+			}
+		}
+		&.monthselect {
+			@extend %extend_5;
+			&:focus {
+				background: $content-bg-color;
+			}
+		}
+		&.yearselect {
+			@extend %extend_5;
+			&:focus {
+				background: $content-bg-color;
+			}
+		}
+	}
+	td.off {
+		background-color: transparent;
+		&.end-date {
+			background-color: transparent;
+		}
+		&.in-range {
+			background-color: transparent;
+		}
+		&.start-date {
+			background-color: transparent;
+		}
+	}
+	&.show-calendar .ranges {
+		margin-top: 0;
+		height: 297px;
+	}
+}
+.btn-check {
+	&:active + .daterangepicker .drp-buttons .cancelBtn {
+		@extend %extend_1;
+		i {
+			color: $color_waterloo__approx;
+		}
+		.svg-icon svg {
+			[fill]:not(.permanent):not(g) {
+				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+				transition: fill .3s ease;
+				fill: $color_waterloo__approx;
+			}
+			&:hover [fill]:not(.permanent):not(g) {
+				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+				transition: fill .3s ease;
+			}
+		}
+		&.dropdown-toggle:after {
+			color: $color_waterloo__approx;
+		}
+	}
+	&:checked + .daterangepicker .drp-buttons .cancelBtn {
+		@extend %extend_1;
+		i {
+			color: $color_waterloo__approx;
+		}
+		.svg-icon svg {
+			[fill]:not(.permanent):not(g) {
+				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+				transition: fill .3s ease;
+				fill: $color_waterloo__approx;
+			}
+			&:hover [fill]:not(.permanent):not(g) {
+				//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+				transition: fill .3s ease;
+			}
+		}
+		&.dropdown-toggle:after {
+			color: $color_waterloo__approx;
+		}
+	}
+}
+@media(max-width: 767.98px) {
+	.daterangepicker.show-calendar {
+		.ranges {
+			float: none!important;
+			height: auto!important;
+			ul {
+				width: 100%;
+			}
+		}
+		.drp-calendar {
+			float: none!important;
+			max-width: unset!important;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+}
+.modal-open .daterangepicker {
+	z-index: 1056;
+}
+.show > .daterangepicker .drp-buttons .cancelBtn {
+	@extend %extend_1;
+	i {
+		color: $color_waterloo__approx;
+	}
+	.svg-icon svg {
+		[fill]:not(.permanent):not(g) {
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: fill .3s ease;
+			fill: $color_waterloo__approx;
+		}
+		&:hover [fill]:not(.permanent):not(g) {
+			//Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+			transition: fill .3s ease;
+		}
+	}
+	&.dropdown-toggle:after {
+		color: $color_waterloo__approx;
+	}
+}
